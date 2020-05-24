@@ -1,4 +1,4 @@
-package ru.bystryakov.mvn1;
+package ru.bystryakov.springcourse;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
