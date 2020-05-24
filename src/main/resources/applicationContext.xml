@@ -19,6 +19,14 @@
         class="ru.bystryakov.springcourse.MusicPlayer" >
         <constructor-arg ref="musicBean" />
     </bean>
+    <!-- домашка -->
+    <bean id="musicBeanJ"
+          class="ru.bystryakov.springcourse.JazzMusic" >
+    </bean>
+    <bean id="musicP"
+          class="ru.bystryakov.springcourse.MusicPlayer" >
+        <constructor-arg ref="musicBean2" />
+    </bean>
 
 
 </beans>

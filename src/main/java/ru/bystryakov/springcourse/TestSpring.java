@@ -25,6 +25,15 @@ public class TestSpring {
         Music music2 = context.getBean("musicBean2", Music.class);
         MusicPlayer musicPlayer2 = new MusicPlayer(music2);
         musicPlayer2.playMusic();
+        // домашка
+        music2 = context.getBean("musicBeanJ", Music.class);
+        musicPlayer2 = new MusicPlayer(music2);
+        musicPlayer2.playMusic();
+        // плеер из контекста
+        musicPlayer = context.getBean("musicP", MusicPlayer.class);
+        musicPlayer.playMusic();
+
+
 
         context.close();
     }
