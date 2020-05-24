@@ -12,14 +12,17 @@ public class TestSpring {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
         );
-        Music music = context.getBean("musicBean", Music.class);
-        Music music2 = context.getBean("musicBean2", Music.class);
+        // прямое определение плеера
+        // Music music = context.getBean("musicBean", Music.class);
+        // MusicPlayer musicPlayer = new MusicPlayer(music);   // IoC
 
-        MusicPlayer musicPlayer = new MusicPlayer(music);   // IoC
+        // сделаем через context
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         musicPlayer.playMusic();
 
         //System.out.println("");
-
+/**/
+        Music music2 = context.getBean("musicBean2", Music.class);
         MusicPlayer musicPlayer2 = new MusicPlayer(music2);
         musicPlayer2.playMusic();
 

@@ -10,8 +10,15 @@
     <bean id="musicBean"
           class="ru.bystryakov.springcourse.RockMusic" >
     </bean>
+    <!---->
     <bean id="musicBean2"
         class="ru.bystryakov.springcourse.ClassicalMusic" >
     </bean>
+    <!-- теперь через Spring создадим MusicPlayer -->
+    <bean id="musicPlayer"
+        class="ru.bystryakov.springcourse.MusicPlayer" >
+        <constructor-arg ref="musicBean" />
+    </bean>
+
 
 </beans>
