@@ -12,8 +12,17 @@ public class TestSpring {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
         );
-        TestBean testBean = context.getBean("testBean", TestBean.class);
-        System.out.println( "Инициирован Bean именем: "+testBean.getName());
+        Music music = context.getBean("musicBean", Music.class);
+        Music music2 = context.getBean("musicBean2", Music.class);
+
+        MusicPlayer musicPlayer = new MusicPlayer(music);   // IoC
+        musicPlayer.playMusic();
+
+        //System.out.println("");
+
+        MusicPlayer musicPlayer2 = new MusicPlayer(music2);
+        musicPlayer2.playMusic();
+
         context.close();
     }
 }
