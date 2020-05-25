@@ -7,6 +7,9 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!-- импорт через файл musicPlayer.properties -->
+    <context:property-placeholder location="classpath:musicPlayer.properties" />
+
     <bean id="musicBean"
           class="ru.bystryakov.springcourse.RockMusic" >
     </bean>
@@ -33,9 +36,13 @@
     <bean id="musicP"
           class="ru.bystryakov.springcourse.MusicPlayer" >
         <property name="music" ref="musicBean" />
-        <!-- значения -->
+        <!-- значения вручную
         <property name="name" value="Уровень громкости: " />
         <property name="volume" value="66" />
+        -->
+        <!-- или через файл musicPlayer.properties -->
+        <property name="name" value="${musicPlayer.name}" />
+        <property name="volume" value="${musicPlayer.volume}" />
     </bean>
 
 </beans>
