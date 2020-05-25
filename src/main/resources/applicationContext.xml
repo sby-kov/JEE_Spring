@@ -23,10 +23,19 @@
     <bean id="musicBeanJ"
           class="ru.bystryakov.springcourse.JazzMusic" >
     </bean>
+    <!-- внедрение через конструктор
     <bean id="musicP"
           class="ru.bystryakov.springcourse.MusicPlayer" >
         <constructor-arg ref="musicBean2" />
     </bean>
-
+    -->
+    <!--внедрение через setter  -->
+    <bean id="musicP"
+          class="ru.bystryakov.springcourse.MusicPlayer" >
+        <property name="music" ref="musicBean" />
+        <!-- значения -->
+        <property name="name" value="Уровень громкости: " />
+        <property name="volume" value="66" />
+    </bean>
 
 </beans>

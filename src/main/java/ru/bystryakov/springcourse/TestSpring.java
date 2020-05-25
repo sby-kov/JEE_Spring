@@ -31,9 +31,10 @@ public class TestSpring {
         musicPlayer2.playMusic();
         // плеер из контекста
         musicPlayer = context.getBean("musicP", MusicPlayer.class);
+        System.out.print( "Bean = musicP. " );
+        System.out.print( musicPlayer.getName() + " : " );
+        System.out.println(musicPlayer.getVolume());
         musicPlayer.playMusic();
-
-
 
         context.close();
     }
