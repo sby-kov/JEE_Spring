@@ -19,8 +19,11 @@
     </bean>
     <!-- теперь через Spring создадим MusicPlayer -->
     <bean id="musicPlayer"
-        class="ru.bystryakov.springcourse.MusicPlayer" >
+        class="ru.bystryakov.springcourse.MusicPlayer"
+        >
+        <!-- scope="prototype" -->
         <constructor-arg ref="musicBean" />
+        <property name="volume" value="66" />
     </bean>
     <!-- домашка -->
     <bean id="musicBeanJ"

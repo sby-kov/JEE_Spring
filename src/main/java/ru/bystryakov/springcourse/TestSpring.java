@@ -43,6 +43,26 @@ public class TestSpring {
         // домашка
         System.out.println("--- домашка = коллекция ---");
         musicPlayer.playMusicList(collectionInjection.getMusicList());
+        // scope Singleton Prototype
+        System.out.println("--- Singleton или Prototype ---");
+        MusicPlayer mP1 = context.getBean("musicPlayer", MusicPlayer.class);
+        MusicPlayer mP2 = context.getBean("musicPlayer", MusicPlayer.class);
+        boolean comp = mP1 == mP2;
+        String scope = "Prototype";
+
+        if (comp) { scope = "Singleton"; }
+        System.out.println(mP1);
+        System.out.println(mP2);
+        System.out.print(comp);
+        System.out.println(" => " + scope);
+        // меняем уровень
+        mP2.setVolume(33);
+        System.out.println("изменили уровень для mP2 = " + mP2.getVolume() );
+        System.out.println(mP1.getVolume());
+        System.out.println(mP2.getVolume());
+
+
+
 
         context.close();
     }
