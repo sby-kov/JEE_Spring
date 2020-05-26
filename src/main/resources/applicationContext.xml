@@ -44,5 +44,22 @@
         <property name="name" value="${musicPlayer.name}" />
         <property name="volume" value="${musicPlayer.volume}" />
     </bean>
+    <!-- коллекция - домашка -->
+    <bean id="collectionInjection" class="ru.bystryakov.springcourse.CollectionInjection">
+    <!-- results in a setDocumentList(java.util.List) call -->
+    <property name="musicList">
+        <list>
+            <!--
+            <value>Песня1</value>
+            <value>Классика</value>
+            <value>Рок</value>
+            <value>Джаз</value>-->
+            <!-- грузим бины !! -->
+            <ref bean="musicBean2" />
+            <ref bean="musicBean" />
+            <ref bean="musicBeanJ" />
+        </list>
+    </property>
+    </bean>
 
 </beans>

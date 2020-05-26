@@ -1,5 +1,8 @@
 package ru.bystryakov.springcourse;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * User:  Marina
  * Дата:  24.05.2020
@@ -7,6 +10,8 @@ package ru.bystryakov.springcourse;
  */
 public class MusicPlayer {
     private Music music;
+
+    private List<Music> musicList = new ArrayList<>();
 
     private String name;
     private int volume;
@@ -29,5 +34,14 @@ public class MusicPlayer {
 
     public void playMusic() {
         System.out.println("Играет " + music.getSong());
+    }
+
+    // вывод списка
+    public void playMusicList(List<Music> musicList) {
+        System.out.println("Список произведений коллекции:");
+        for (Music music: musicList) {
+            System.out.println(music.getSong());
+        }
+        System.out.println("Ok!");
     }
 }

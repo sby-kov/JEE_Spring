@@ -15,9 +15,13 @@ public class TestSpring {
         // прямое определение плеера
         // Music music = context.getBean("musicBean", Music.class);
         // MusicPlayer musicPlayer = new MusicPlayer(music);   // IoC
+        // коллекция - домашка
+        CollectionInjection collectionInjection =
+                (CollectionInjection) context.getBean("collectionInjection");   // читаем
 
         // сделаем через context
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+
         musicPlayer.playMusic();
 
         //System.out.println("");
@@ -25,7 +29,8 @@ public class TestSpring {
         Music music2 = context.getBean("musicBean2", Music.class);
         MusicPlayer musicPlayer2 = new MusicPlayer(music2);
         musicPlayer2.playMusic();
-        // домашка
+        // домашка = джаз
+        System.out.println("--- домашка = джаз ---");
         music2 = context.getBean("musicBeanJ", Music.class);
         musicPlayer2 = new MusicPlayer(music2);
         musicPlayer2.playMusic();
@@ -35,6 +40,9 @@ public class TestSpring {
         System.out.print( musicPlayer.getName() + " : " );
         System.out.println(musicPlayer.getVolume());
         musicPlayer.playMusic();
+        // домашка
+        System.out.println("--- домашка = коллекция ---");
+        musicPlayer.playMusicList(collectionInjection.getMusicList());
 
         context.close();
     }
