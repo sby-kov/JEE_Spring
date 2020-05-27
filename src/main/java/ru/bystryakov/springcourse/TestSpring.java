@@ -12,16 +12,17 @@ public class TestSpring {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
         );
-        Music music = context.getBean("musicBean", Music.class);
-        Music music2 = context.getBean("musicBean2", Music.class);
+        // проверка аннотации Component
+        System.out.println("--- проверка аннотации Component ---");
+
+        Music music = context.getBean("classicalMusic", Music.class);   // если id нет, то classicalMusic
+        Music music2 = context.getBean("idRockMusic", Music.class);     // id есть
 
         MusicPlayer musicPlayer = new MusicPlayer(music);   // IoC
         musicPlayer.playMusic();
 
-        //System.out.println("");
-
-        MusicPlayer musicPlayer2 = new MusicPlayer(music2);
-        musicPlayer2.playMusic();
+        MusicPlayer rockMusicPlayer2 = new MusicPlayer(music2);
+        rockMusicPlayer2.playMusic();
 
         context.close();
     }
