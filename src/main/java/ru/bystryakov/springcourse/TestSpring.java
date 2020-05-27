@@ -60,9 +60,18 @@ public class TestSpring {
         System.out.println("изменили уровень для mP2 = " + mP2.getVolume() );
         System.out.println(mP1.getVolume());
         System.out.println(mP2.getVolume());
-
-
-
+        // жизненный цикл
+        System.out.println("--- жизненный цикл ---");
+        Music musicP = context.getBean("musicBeanP", PopMusic.class );
+        System.out.println(musicP.getSong());
+        // проверка init & destroy для prototype
+        System.out.println("--- проверка init & destroy для prototype ---");
+        Music musicP1 = context.getBean("musicBeanP", PopMusic.class );
+        System.out.println("1 " + musicP1.getSong() );
+        Music musicP2 = context.getBean("musicBeanP", PopMusic.class );
+        System.out.println("2 " + musicP2.getSong() );
+        Music musicP3 = context.getBean("musicBeanP", PopMusic.class );
+        System.out.println("3 " + musicP3.getSong() );
 
         context.close();
     }

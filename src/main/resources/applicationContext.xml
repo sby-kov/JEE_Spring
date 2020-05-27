@@ -64,5 +64,12 @@
         </list>
     </property>
     </bean>
+    <!-- init & destroy, + проверка для prototype -->
+    <bean id="musicBeanP"
+          class="ru.bystryakov.springcourse.PopMusic"
+          scope="prototype"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"  >
+    </bean>
 
 </beans>

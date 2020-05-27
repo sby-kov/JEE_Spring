@@ -43,5 +43,10 @@ public class MusicPlayer {
             System.out.println(music.getSong());
         }
         System.out.println("Ok!");
+        System.out.println("А теперь играем:");
+        for (Music music: musicList) {
+            this.music = music;
+            this.playMusic();
+        }
     }
 }
