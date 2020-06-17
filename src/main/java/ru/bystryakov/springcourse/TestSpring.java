@@ -12,17 +12,23 @@ public class TestSpring {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
         );
+//        // проверка аннотации Component
+//        System.out.println("--- проверка аннотации Component ---");
+//
+//        Music music = context.getBean("classicalMusic", Music.class);   // если id нет, то classicalMusic
+//        Music music2 = context.getBean("idRockMusic", Music.class);     // id есть
+//
+//        MusicPlayer musicPlayer = new MusicPlayer(music);   // IoC
+//        musicPlayer.playMusic();
+//
+//        MusicPlayer rockMusicPlayer2 = new MusicPlayer(music2);
+//        rockMusicPlayer2.playMusic();
+
         // проверка аннотации Component
-        System.out.println("--- проверка аннотации Component ---");
-
-        Music music = context.getBean("classicalMusic", Music.class);   // если id нет, то classicalMusic
-        Music music2 = context.getBean("idRockMusic", Music.class);     // id есть
-
-        MusicPlayer musicPlayer = new MusicPlayer(music);   // IoC
+        System.out.println("--- проверка аннотации Autowired ---");
+        // получим MusicPlayer из spring context
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         musicPlayer.playMusic();
-
-        MusicPlayer rockMusicPlayer2 = new MusicPlayer(music2);
-        rockMusicPlayer2.playMusic();
 
         context.close();
     }
