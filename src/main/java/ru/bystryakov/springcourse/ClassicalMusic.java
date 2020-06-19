@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  * Дата:  24.05.2020
  * Время: 19:23
  */
-@Component
+//@Component        // убираем, чтобы избежать неоднозначности бинов
 public class ClassicalMusic implements Music {
 
     @Override

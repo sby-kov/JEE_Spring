@@ -24,10 +24,18 @@ public class MusicPlayer {
 //    }
     private Music music;
     // реализуем IoC
-    @Autowired
+    //@Autowired
     public MusicPlayer(Music music) {
         this.music = music;
     }
+
+    // через setter, в конструкторе закроем
+    @Autowired
+    public void setMusic(Music music) {
+//    public void asdfr(Music music) {  // работает! имя метода не важно!
+        this.music = music;
+    }
+
 
     public void playMusic() {
         System.out.println("Играет " + music.getSong());
